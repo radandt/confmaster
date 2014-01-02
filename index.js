@@ -18,6 +18,6 @@ http.createServer(function (req, res) {
     fs.readFile(filename, function (err, data) {
         res.end(data);
     });
-}).listen(8001);
+}).listen(8008);
 
-//console.log('run server at port 8001');
+console.log('run server at port 8008');
