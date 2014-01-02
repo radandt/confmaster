@@ -18,10 +18,11 @@ require.config({
         handlebars : 'vendor/handlebars/handlebars_1.3.0',
       
         /* parsing-extension to require.js */
-        text : 'libs/require/text',
+        text : 'vendor/require/text',
         //multiTpl : 'libs/require/multiTpl',	// underscore-templates-map
-        json : 'libs/require/json',
-        async : 'libs/require/async',
+        json : 'vendor/require/json',
+        async : 'vendor/require/async',
+        hbs : 'vendor/require/hbs',
         
         /* Mixins */
 		backboneViewMixins : 'vendor/backbone/viewmixins',
@@ -32,6 +33,18 @@ require.config({
         
         /* Helper */
         // ...
+        
+        /* App */
+       App : 'modules/app/App',
+       Controller : 'modules/app/Controller',
+       Router : 'modules/app/Router',
+        
+        /* Broadcast */
+		Broadcast : 'modules/broadcast/Broadcast',
+		
+		/* Modules */
+		user : 'modules/user/view',
+		User : 'modules/user/User',
 	},
 	shim : {
 		underscore : {
@@ -51,11 +64,22 @@ require.config({
         },
         handlebars : {
         	exports : 'Handlebars'
-       	}
+       	}        
 	},
+	
 	waitSeconds : 40
 });
-
-require(['jquery', 'underscore', 'backbone', 'marionette', 'stickit', 'handlebars', 'backboneViewMixins'], function() {
-	console.dir(arguments);
+/*
+requirejs.onError = function (err) {
+    console.log(err.requireType);
+    if (err.requireType === 'timeout') {
+        console.log('modules: ' + err.requireModules);
+    }
+    throw err;
+};
+*/
+require(['App'], function(App) {
+//console.log(new App);	
+	new App;
+	//console.dir(arguments);
 });
