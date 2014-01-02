@@ -20,4 +20,4 @@ http.createServer(function (req, res) {
     });
 }).listen(8001);
 
-console.log('run server at port 8001');
+//console.log('run server at port 8001');
