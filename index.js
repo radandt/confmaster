@@ -13,7 +13,7 @@ http.createServer(function (req, res) {
     }
 
     var filename = 'confmaster/' + (req.url === '/' ? 'index.html' : req.url);
-    console.log(filename);
+    //console.log(filename);
 
     fs.readFile(filename, function (err, data) {
         res.end(data);
