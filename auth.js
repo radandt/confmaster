@@ -2,8 +2,8 @@ var http = require('http');
 var fs = require('fs');
 
 http.createServer(function (req, res) {
-	//console.log(req);
-	
+    console.log(req);
+    
     if (req.url.substr(-3) === '.js') {
         res.writeHead(200, {'Content-Type': 'application/javascript'});
     } else if (req.url.substr(-4) === '.css') {
